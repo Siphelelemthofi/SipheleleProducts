@@ -10,5 +10,7 @@ namespace SipheleleProducts.Categories
     {
         Task<Guid> AddNewCatagory(AddNewCategoryDto addNewCategoryDto);
         Task<List<GetListOfAllCatagoriesDto>> GetAllCatagories();
+        Task<string> UpdateCategoryById(UpdateCategoryDto updateCategoryDto);
+        Task<string> DeleteCategoryById(int CategoryId);    
     }
 }

@@ -43,5 +43,31 @@ namespace SipheleleProducts.Categories
             await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
            return await dataReader.MapToList<GetListOfAllCatagories>(cancellationToken);
         }
+        public async Task<string> UpdateCategoryById(UpdateCategory updateCategory, CancellationToken cancellationToken = default)
+        {
+            await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
+             cancellationToken);
+            SqlParameter[] sqlQueryParam =
+            {
+                new SqlParameter("@CategoryId", updateCategory.CategoryId),
+                new SqlParameter("@CategoryName", updateCategory.CategoryName),
+                new SqlParameter("@Description", updateCategory.Description),
+                new SqlParameter("@Picture", updateCategory.Picture),
+            };
+            await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "UpdateCategoryById", CommandType.StoredProcedure, sqlQueryParam);
+            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+        }
+        public async Task<string> DeleteCategoryById(int CategoryId, CancellationToken cancellationToken = default)
+        {
+            await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
+ cancellationToken);
+            SqlParameter[] sqlQueryParam =
+            {
+                new SqlParameter("@CategoryId", CategoryId),
+                
+            };
+            await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "RemoveCategoryById", CommandType.StoredProcedure, sqlQueryParam);
+            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+        }
     }
 }

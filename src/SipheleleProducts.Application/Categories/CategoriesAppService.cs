@@ -26,5 +26,14 @@ namespace SipheleleProducts.Categories
             var getCatagories = await _categoriesRepository.GetAllCategories();
             return ObjectMapper.Map<List<GetListOfAllCatagories>, List<GetListOfAllCatagoriesDto>>(getCatagories);
         }
+        public async Task<string> UpdateCategoryById(UpdateCategoryDto updateCategoryDto)
+        {
+            var UpdateCategory = ObjectMapper.Map<UpdateCategoryDto, UpdateCategory>(updateCategoryDto);
+            return await _categoriesRepository.UpdateCategoryById(UpdateCategory);
+        }
+        public async Task<string> DeleteCategoryById(int CategoryId)
+        {
+            return await _categoriesRepository.DeleteCategoryById(CategoryId); 
+        }
     }
 }

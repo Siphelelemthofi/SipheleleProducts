@@ -28,9 +28,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Products\" />
-    <Folder Include="Suppliers\" />
-  </ItemGroup>
-
 </Project>

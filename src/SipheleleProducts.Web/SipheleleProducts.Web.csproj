@@ -2366,6 +2366,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
   </ItemGroup>
@@ -2375,6 +2376,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SipheleleProduct.ViewModels\SipheleleProducts.ViewModels.csproj" />
+    <ProjectReference Include="..\SipheleleProducts.Application.Contracts\SipheleleProducts.Application.Contracts.csproj" />
     <ProjectReference Include="..\SipheleleProducts.Application\SipheleleProducts.Application.csproj" />
     <ProjectReference Include="..\SipheleleProducts.HttpApi\SipheleleProducts.HttpApi.csproj" />
     <ProjectReference Include="..\SipheleleProducts.EntityFrameworkCore\SipheleleProducts.EntityFrameworkCore.csproj" />
