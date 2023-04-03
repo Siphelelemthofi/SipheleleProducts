@@ -1,5 +1,6 @@
 ﻿using SipheleleProducts.Categories.Dto;
 using SipheleleProducts.Categories.Entities;
+using SipheleleProducts.Categories.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,11 @@ namespace SipheleleProducts.Categories
     public class CategoriesAppService: SipheleleProductsAppService, ICategoriesAppService
     {
         private readonly ICategoriesRepository _categoriesRepository;
-        public CategoriesAppService(ICategoriesRepository categoriesRepository) { 
+        
+        public CategoriesAppService(ICategoriesRepository categoriesRepository ) { 
         
         _categoriesRepository = categoriesRepository;
+    
         }
         public async Task<Guid> AddNewCatagory(AddNewCategoryDto addNewCategoryDto)
         {
@@ -35,5 +38,11 @@ namespace SipheleleProducts.Categories
         {
             return await _categoriesRepository.DeleteCategoryById(CategoryId); 
         }
+        public async Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetaislByCategoryById(int CategoryId)
+        {
+            var getCatagoryByCategoryId = await _categoriesRepository.GetCategoryDetaislByCategoryById(CategoryId);
+            return ObjectMapper.Map<GetCategoryDetaislByCategoryById, GetCategoryDetaislByCategoryByIdDto>(getCatagoryByCategoryId);
+        }
+     
     }
 }

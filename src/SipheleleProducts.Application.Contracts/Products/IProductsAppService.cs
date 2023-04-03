@@ -10,7 +10,8 @@ namespace SipheleleProducts.Products
     {
         Task<string> AddNewProduct(AddNewProductDto addNewProductDto);
         Task<List<GetAllProductDto>> GetAllProducts();
-        Task<string> UpdateCategoryById(UpdateProductByIdDto updateProductByIdDto);
-        Task<string> DeleteCategoryById(int ProductId);
+        Task<string> UpdateByProductById(UpdateProductByIdDto updateProductByIdDto);
+        Task<string> DeleteByProductById(int ProductId);
+    
     }
 }

@@ -14,5 +14,7 @@ namespace SipheleleProducts.Categories
         Task<List<GetListOfAllCatagories>> GetAllCategories(CancellationToken cancellationToken = default);
         Task<string> UpdateCategoryById(UpdateCategory updateCategory, CancellationToken cancellationToken = default);
         Task<string> DeleteCategoryById(int CategoryId, CancellationToken cancellationToken = default);
+
+        Task<GetCategoryDetaislByCategoryById> GetCategoryDetaislByCategoryById(int CategoryId, CancellationToken cancellationToken = default);
     }
 }

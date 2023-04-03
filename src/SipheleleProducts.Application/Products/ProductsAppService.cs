@@ -27,12 +27,12 @@ namespace SipheleleProducts.Products
             var GetProducts = await _productsRepository.GetAllProducts();
             return ObjectMapper.Map<List<GetAllProducts>, List<GetAllProductDto>>(GetProducts);
         }
-        public async Task<string> UpdateCategoryById(UpdateProductByIdDto updateProductByIdDto)
+        public async Task<string> UpdateByProductById(UpdateProductByIdDto updateProductByIdDto)
         {
             var UpdateCategory = ObjectMapper.Map<UpdateProductByIdDto, UpdateProduct>(updateProductByIdDto);
             return await _productsRepository.UpdateProductById(UpdateCategory); 
         }
-        public async Task<string> DeleteCategoryById(int ProductId)
+        public async Task<string> DeleteByProductById(int ProductId)
         {
             return await _productsRepository.RemoveProductById(ProductId);
         }

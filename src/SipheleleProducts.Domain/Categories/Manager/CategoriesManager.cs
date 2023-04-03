@@ -22,7 +22,11 @@ namespace SipheleleProducts.Categories.Manager
             return true;    
 
         }
-
+        public async Task<int> CountAvailableCategories()
+        {
+            var GetAllExistingCategories = await _categoriesRepository.GetAllCategories();
+            return GetAllExistingCategories.Count();
+        }
     }
 
 }
