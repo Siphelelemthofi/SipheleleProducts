@@ -43,6 +43,10 @@ namespace SipheleleProducts.Categories
             var getCatagoryByCategoryId = await _categoriesRepository.GetCategoryDetaislByCategoryById(CategoryId);
             return ObjectMapper.Map<GetCategoryDetaislByCategoryById, GetCategoryDetaislByCategoryByIdDto>(getCatagoryByCategoryId);
         }
-     
+        public async Task<int> CountAvailbleCategories()
+        {
+            var getTotalCategories =  await GetAllCatagories(); 
+            return getTotalCategories.Count();
+        }
     }
 }

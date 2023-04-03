@@ -27,8 +27,8 @@ namespace SipheleleProducts.Suppliers
         }
         public async Task<List<GetAllSuppliersDto>> GetAllSuppliers()
         {
-            var GetProducts = await _supplierssRepository.GetAllSuppliers();
-            return ObjectMapper.Map<List<GetAllSuppliers>, List<GetAllSuppliersDto>>(GetProducts);
+            var GetSuppliers = await _supplierssRepository.GetAllSuppliers();
+            return ObjectMapper.Map<List<GetAllSuppliers>, List<GetAllSuppliersDto>>(GetSuppliers);
         }
         public async Task<string> UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto)
         {
@@ -39,6 +39,11 @@ namespace SipheleleProducts.Suppliers
         {
             return await _supplierssRepository.RemoveSupplierById(ProductId);
 
+        }
+        public async Task<int> CountAvailableSuppliers()
+        {
+            var CountAllSuppliers = await GetAllSuppliers();    
+            return CountAllSuppliers.Count();
         }
     }
 }

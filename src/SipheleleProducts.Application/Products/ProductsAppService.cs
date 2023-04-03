@@ -36,5 +36,10 @@ namespace SipheleleProducts.Products
         {
             return await _productsRepository.RemoveProductById(ProductId);
         }
+        public async Task<int> CountTotalNumberOfProducts()
+        {
+            var CountAllProduct = await GetAllProducts();
+            return CountAllProduct.Count;
+        }
     }
 }

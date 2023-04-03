@@ -12,6 +12,6 @@ namespace SipheleleProducts.Suppliers
         Task<string> RemoveSupplierById(int ProductId);
         Task<string> UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto);
         Task<List<GetAllSuppliersDto>> GetAllSuppliers();
-  
+        Task<int> CountAvailableSuppliers();
     }
 }
