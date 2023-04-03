@@ -15,7 +15,6 @@ namespace SipheleleProducts.Web.Pages.Suppliers
         {
             await _suppliersAppService.RemoveSupplierById(SupplierId);
             return Page();
-
         }
     }
 }
