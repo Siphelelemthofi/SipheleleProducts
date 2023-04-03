@@ -13,7 +13,7 @@ public class IndexModel : SipheleleProductsPageModel
     [BindProperty]
     public int TotalNUmberOfProducts { get; set; }
     [BindProperty]
-    public int TotalNUmberOfSuppliers { get; set; }
+    public int TotalNumberOfSuppliers { get; set; }
     private readonly ICategoriesAppService _categoriesAppService;
 
     private readonly IProductsAppService  _productsAppService;
@@ -27,8 +27,8 @@ public class IndexModel : SipheleleProductsPageModel
     public async void OnGet()
     {
         TotalNUmberOfCategories = await _categoriesAppService.CountAvailbleCategories();
-        TotalNUmberOfProducts = await _productsAppService.CountTotalNumberOfProducts(); 
-        TotalNUmberOfSuppliers = await _suppliersAppService.CountAvailableSuppliers();
+        TotalNUmberOfProducts = await _productsAppService.CountTotalNumberOfProducts();
+        TotalNumberOfSuppliers = await _suppliersAppService.CountAvailableSuppliers();
 
     }
 }
