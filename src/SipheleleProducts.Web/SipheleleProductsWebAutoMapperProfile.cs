@@ -18,5 +18,8 @@ public class SipheleleProductsWebAutoMapperProfile : Profile
         CreateMap<GetListOfAllCatagoriesDto,GetListOfAllCatagoriesViewModel>();
         CreateMap<GetAllSuppliersDto, GetAllSuppliersViewModel>();
         CreateMap<AddNewCategoryViewModel, AddNewCategoryDto>();
+        CreateMap<AddNewSupplierViewModel, AddNewSupplierDto>();
+        CreateMap <GetCategoryDetaislByCategoryByIdDto, GetCategoryDetaislByCategoryByIdViewModel> ();
+        CreateMap<UpdateCategoryViewModel, UpdateCategoryDto>();
     }
 }

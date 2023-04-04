@@ -21,5 +21,6 @@ public class SipheleleProductsApplicationAutoMapperProfile : Profile
         CreateMap <UpdateSupplierByIdDto, UpdateSupplierById> ();
         CreateMap<GetAllSuppliers,GetAllSuppliersDto>();
         CreateMap<UpdateCategoryDto, UpdateCategory>();
+        CreateMap<GetCategoryDetaislByCategoryById, GetCategoryDetaislByCategoryByIdDto>();
     }
 }

@@ -12,7 +12,8 @@ namespace SipheleleProducts.Categories
         Task<List<GetListOfAllCatagoriesDto>> GetAllCatagories();
         Task<string> UpdateCategoryById(UpdateCategoryDto updateCategoryDto);
         Task<string> DeleteCategoryById(int CategoryId);
-        Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetaislByCategoryById(int CategoryId);
-        Task<int> CountAvailbleCategories();
+        Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetailsByCategoryById(int CategoryId);
+       
+            Task<int> CountAvailbleCategories();
     }
 }

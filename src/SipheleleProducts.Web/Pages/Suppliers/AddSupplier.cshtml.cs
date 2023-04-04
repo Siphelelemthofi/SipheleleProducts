@@ -32,6 +32,7 @@ namespace SipheleleProducts.Web.Pages.Suppliers
                 if(AddSupplier.Equals("Success"))
                 {
                     //return GetAll for suppliers
+                    return RedirectToPage("/Suppliers/GetAllSuppliers");
                 }
 
             }

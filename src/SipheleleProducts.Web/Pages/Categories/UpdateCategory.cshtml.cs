@@ -11,14 +11,24 @@ namespace SipheleleProducts.Web.Pages.Categories
     public class UpdateCategoryModel : SipheleleProductsPageModel
     {
         [BindProperty]
-        public UpdateCategoryViewModel updateCategoryViewModel { get; set; }    
+        public UpdateCategoryViewModel updateCategoryViewModel { get; set; }
+        [BindProperty]
+        public GetCategoryDetaislByCategoryByIdViewModel getCategoryDetaislByCategoryByIdViewModel { get; set; }
         private readonly ICategoriesAppService _categoriesAppService;
         public UpdateCategoryModel(ICategoriesAppService categoriesAppService)
         {
             _categoriesAppService = categoriesAppService;
         }
-        public void OnGet()
+        public async Task<IActionResult> OnGet(int CategoryId)
         {
+            var getCateroryDetails = ObjectMapper.Map<GetCategoryDetaislByCategoryByIdDto, GetCategoryDetaislByCategoryByIdViewModel>(await _categoriesAppService.GetCategoryDetailsByCategoryById(CategoryId));
+            updateCategoryViewModel = new UpdateCategoryViewModel()
+            {
+                CategoryId = getCateroryDetails.CategoryId,
+                CategoryName = getCateroryDetails.CategoryName,
+                Picture = getCateroryDetails.Picture,
+            };
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync() {
@@ -28,7 +38,7 @@ namespace SipheleleProducts.Web.Pages.Categories
                 var ReturnResult = await _categoriesAppService.UpdateCategoryById(UpdateCategory);
                 if (ReturnResult.Equals("Success"))
                 {
-                    //return page
+                    return RedirectToPage("/Categories/GetAllCategories");
                 }
             }
 

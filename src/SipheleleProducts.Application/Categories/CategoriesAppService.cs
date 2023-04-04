@@ -38,7 +38,7 @@ namespace SipheleleProducts.Categories
         {
             return await _categoriesRepository.DeleteCategoryById(CategoryId); 
         }
-        public async Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetaislByCategoryById(int CategoryId)
+        public async Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetailsByCategoryById(int CategoryId)
         {
             var getCatagoryByCategoryId = await _categoriesRepository.GetCategoryDetaislByCategoryById(CategoryId);
             return ObjectMapper.Map<GetCategoryDetaislByCategoryById, GetCategoryDetaislByCategoryByIdDto>(getCatagoryByCategoryId);

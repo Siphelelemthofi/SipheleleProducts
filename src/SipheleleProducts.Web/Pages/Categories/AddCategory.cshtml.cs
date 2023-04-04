@@ -28,6 +28,7 @@ namespace SipheleleProducts.Web.Pages.Categories
                 var AddNewCategory = ObjectMapper.Map<AddNewCategoryViewModel, AddNewCategoryDto>(addNewCategoryViewModel);
                 var AddNewCategoryReturnResult = await _categoriesAppService.AddNewCatagory(AddNewCategory);
                 //redirect to get all category
+                return RedirectToPage("/Categories/GetAllCategories");
             }
             return Page();
         }

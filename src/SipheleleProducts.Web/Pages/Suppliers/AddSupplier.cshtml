@@ -22,60 +22,82 @@
                       
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="Company Name" style="background-color:$blue-100">
+                                        <label class="form-label">Company Name</label>
+                                        <input asp-for="addNewSupplierViewModel.CompanyName" type="text" class="form-control form-control-user" id="exampleFirstName" 
+                                             style="background-color: #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.CompanyName, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Contact Name" style="background-color:cornflowerblue">
+                                        <label class="form-label">Contact Name</label>
+                                        <input asp-for="addNewSupplierViewModel.ContactName" type="text" class="form-control form-control-user" id="exampleLastName"
+                                                style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.ContactName, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="Contact Title" style="background-color:cornflowerblue">
+                                        <label class="form-label">Contact Title</label>
+                                        <input asp-for="addNewSupplierViewModel.ContactTitle" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                             style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.ContactTitle, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Address" style="background-color:cornflowerblue">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="City" style="background-color:cornflowerblue">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Region" style="background-color:cornflowerblue">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="Postal Code" style="background-color:cornflowerblue">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Country" style="background-color:cornflowerblue">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="Phone" style="background-color:cornflowerblue">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                               placeholder="Fax" style="background-color:cornflowerblue">
+                                        <label class="form-label">Address</label>
+                                        <input asp-for="addNewSupplierViewModel.Address" type="text" class="form-control form-control-user" id="exampleLastName"
+                                                 style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.Address, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               placeholder="Home Page" style="background-color:cornflowerblue">
+                                        <label class="form-label">City</label>
+                                        <input asp-for="addNewSupplierViewModel.City" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                                style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.City, "", new { @class = "text-danger" })
                                     </div>
-                                  
+                           
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Region</label>
+                                        <input asp-for="addNewSupplierViewModel.Region" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                             style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.Region, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Postal Code</label>
+                                        <input asp-for="addNewSupplierViewModel.PostalCode" type="text" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.PostalCode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Country</label>
+                                        <input asp-for="addNewSupplierViewModel.Country" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                           style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.Country, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Phone Number</label>
+                                        <input asp-for="addNewSupplierViewModel.PhoneNumber" type="text" class="form-control form-control-user" id="exampleLastName"
+                                                style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Fax</label>
+                                        <input asp-for="addNewSupplierViewModel.Fax" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.Fax, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">HomePage</label>
+                                        <input asp-for="addNewSupplierViewModel.HomePage" type="text" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewSupplierViewModel.HomePage, "", new { @class = "text-danger" })
+                                    </div>
                                 </div>
                                 <button type="submit"   class="btn btn-primary btn-user btn-block">
                                    Save
