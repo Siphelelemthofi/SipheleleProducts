@@ -43,7 +43,7 @@ namespace SipheleleProducts.Categories
             await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
            return await dataReader.MapToList<GetListOfAllCatagories>(cancellationToken);
         }
-        public async Task<string> UpdateCategoryById(UpdateCategory updateCategory, CancellationToken cancellationToken = default)
+        public async Task UpdateCategoryById(UpdateCategory updateCategory, CancellationToken cancellationToken = default)
         {
             await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
              cancellationToken);
@@ -55,7 +55,7 @@ namespace SipheleleProducts.Categories
                 new SqlParameter("@Picture", updateCategory.Picture),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "UpdateCategoryById", CommandType.StoredProcedure, sqlQueryParam);
-            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
         }
         public async Task<string> DeleteCategoryById(int CategoryId, CancellationToken cancellationToken = default)
         {

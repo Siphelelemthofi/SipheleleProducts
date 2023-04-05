@@ -2,3 +2,55 @@
 @model SipheleleProducts.Web.Pages.Suppliers.GetSupplierDetailsByIdModel
 @{
 }
+<div class="container-fluid" style="align-content:center;">
+    <div class="container-fluid">
+        <!-- Content Row -->
+        <br />
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-3 mb-2">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            Supplier Information
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+
+                      
+                        <div class="col-sm-8 col-md-9 col-lg-9">
+                            <label><strong>Company Name:</strong><br />  @Model.getSupplierDetailsByIdViewModel.CompanyName</label><br />
+                            <label><strong>Contact Name:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.ContactName</label><br />
+                            <label><strong>Contact Title:</strong><br />  @Model.getSupplierDetailsByIdViewModel.ContactTitle</label><br />
+                            <label><strong>Address:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.Address</label><br />
+                            <label><strong>City:</strong><br />  @Model.getSupplierDetailsByIdViewModel.City</label><br />
+                            <label><strong>Region:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.Region</label><br />
+                            <label><strong>Postal Code:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.PostalCode</label><br />
+                            <label><strong>Country:</strong><br />  @Model.getSupplierDetailsByIdViewModel.Country</label><br />
+                            <label><strong>Fax:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.Fax</label><br />
+                            <label><strong>PhoneNumber:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.PhoneNumber</label><br />
+                            <label><strong>Home Page Description:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.HomePage</label>
+                        </div>
+                        <a href="/Suppliers/UpdateSupplier?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-primary btn-circle btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/Suppliers/ConfirmationDeleteOfSuppliers?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-danger btn-circle btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

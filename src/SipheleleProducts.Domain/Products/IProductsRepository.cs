@@ -14,5 +14,6 @@ namespace SipheleleProducts.Products
         Task<List<GetAllProducts>> GetAllProducts(CancellationToken cancellationToken = default);
         Task<string> UpdateProductById(UpdateProduct updateProduct, CancellationToken cancellationToken = default);
             Task<string> RemoveProductById(int ProductId, CancellationToken cancellationToken = default);
+        Task<GetProductDetailsById> GetProductDetailsById(int ProductId, CancellationToken cancellationToken = default);
     }
 }

@@ -12,7 +12,8 @@ namespace SipheleleProducts.Suppliers
     {
         Task<string> RemoveSupplierById(int SuppliyerId, CancellationToken cancellationToken = default);
         Task<List<GetAllSuppliers>> GetAllSuppliers(CancellationToken cancellationToken = default);
-        Task<string> UpdateSupplierById(UpdateSupplierById updateSupplyerById, CancellationToken cancellationToken = default);
+        Task  UpdateSupplierById(UpdateSupplierById updateSupplyerById, CancellationToken cancellationToken = default);
         Task<string> AddNewSupplier(AddNewSupplier addNewSupplyer, CancellationToken cancellationToken = default);
+        Task<GetSupplierDetailsById> GetSuppliersDetailsById(int SupplierId, CancellationToken cancellationToken = default);
     }
 }

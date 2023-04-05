@@ -27,6 +27,7 @@ namespace SipheleleProducts.Web.Pages.Categories
                 CategoryId = getCateroryDetails.CategoryId,
                 CategoryName = getCateroryDetails.CategoryName,
                 Picture = getCateroryDetails.Picture,
+                Description = getCateroryDetails.Description
             };
             return Page();
         }
@@ -35,13 +36,9 @@ namespace SipheleleProducts.Web.Pages.Categories
             if (ModelState.IsValid)
             {
                 var UpdateCategory = ObjectMapper.Map<UpdateCategoryViewModel, UpdateCategoryDto>(updateCategoryViewModel);
-                var ReturnResult = await _categoriesAppService.UpdateCategoryById(UpdateCategory);
-                if (ReturnResult.Equals("Success"))
-                {
-                    return RedirectToPage("/Categories/GetAllCategories");
-                }
+                await _categoriesAppService.UpdateCategoryById(UpdateCategory);
+                return RedirectToPage("/Categories/GetAllCategories");
             }
-
             return Page();  
         }    
 

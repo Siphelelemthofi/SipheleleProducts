@@ -2,3 +2,111 @@
 @model SipheleleProducts.Web.Pages.Products.AddProductModel
 @{
 }
+<div class="container-fluid">
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Add Product!</h1>
+                            </div>
+                            <form class="user" method="post">
+                                <input asp-for="addNewProductViewModel.SupplierId" type="hidden" />
+                                <input asp-for="addNewProductViewModel.CategoryId" type="hidden" />
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Product Name</label>
+                                        <input asp-for="addNewProductViewModel.ProductName" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color: #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.ProductName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Supplier</label>
+                                        <div class="col-6 col-sm-10">
+                                       
+                                            <div id="appFilterSuppliers" style="background-color:   #f2f2f2">
+                                            </div>
+                                            <span class="fa fa-info-circle errspan"
+                                                  data-toggle="tooltip"
+                                                  data-placement="bottom"
+                                                  title="Please select department from the dropdown list that your desired Qualification belongs to, you can also search it"></span>
+                                            @Html.ValidationMessageFor(model => model.addNewProductViewModel.SupplierId, "", new { @class = "text-danger" })
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Category</label>
+                                        <div id="categoriesToDisplay" style="background-color:   #f2f2f2">
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.CategoryId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">QuantityPerUnit</label>
+                                        <input asp-for="addNewProductViewModel.QuantityPerUnit" type="text" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.QuantityPerUnit, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <label class="form-label">UnitPrice</label>
+                                        <input asp-for="addNewProductViewModel.UnitPrice" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.UnitPrice, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">UnitInStock</label>
+                                        <input asp-for="addNewProductViewModel.UnitInStock" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.UnitInStock, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label">ReorderLevel</label>
+                                        <input asp-for="addNewProductViewModel.ReorderLevel" type="text" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:   #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.ReorderLevel, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <label class="form-label">Discontinued</label>
+                                        <input asp-for="addNewProductViewModel.Discontinued" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color:  #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.Discontinued, "", new { @class = "text-danger" })
+                                    </div>
+                                  
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Save
+                                </button>
+                                <hr>
+
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section scripts {
+    <script src="https://unpkg.com/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-select@2.6.4/dist/vue-select.js"></script>
+    <script src="~/js/GetCategoriesDropDown.js"></script>
+    <script src="~/js/GetSuppliersDropDown.js"></script>
+ 
+}
+

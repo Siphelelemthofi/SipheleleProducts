@@ -39,6 +39,8 @@
     <None Include="wwwroot\js\demo\chart-bar-demo.js" />
     <None Include="wwwroot\js\demo\chart-pie-demo.js" />
     <None Include="wwwroot\js\demo\datatables-demo.js" />
+    <None Include="wwwroot\js\GetCategoriesDropDown.js" />
+    <None Include="wwwroot\js\GetSuppliersDropDown.js" />
     <None Include="wwwroot\js\sb-admin-2.js" />
     <None Include="wwwroot\js\sb-admin-2.min.js" />
     <None Include="wwwroot\js\site.js" />
@@ -2388,6 +2390,10 @@
     <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="7.1.0" />
     <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="7.1.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="JS\" />
   </ItemGroup>
 
 </Project>

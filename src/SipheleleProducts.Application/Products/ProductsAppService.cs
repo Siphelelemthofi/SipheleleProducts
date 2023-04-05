@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using SipheleleProducts.Products.Dto;
 using Volo.Abp.ObjectMapping;
 using SipheleleProducts.Products.Entities;
+using SipheleleProducts.Suppliers.Entities;
+using System.Threading;
+using SipheleleProducts.Suppliers.Dto;
 
 namespace SipheleleProducts.Products
 {
@@ -41,5 +44,12 @@ namespace SipheleleProducts.Products
             var CountAllProduct = await GetAllProducts();
             return CountAllProduct.Count;
         }
+        public  async Task<GetProductDetailsByIdDto> GetProductDetailsById(int ProductId)
+        {
+            var getCatagoryByCategoryId = await _productsRepository.GetProductDetailsById(ProductId);
+            return ObjectMapper.Map<GetProductDetailsById, GetProductDetailsByIdDto>(getCatagoryByCategoryId);
+        }
+
+
     }
 }

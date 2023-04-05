@@ -13,6 +13,7 @@ namespace SipheleleProducts.Products
         Task<string> UpdateByProductById(UpdateProductByIdDto updateProductByIdDto);
         Task<string> DeleteByProductById(int ProductId);
         Task<int> CountTotalNumberOfProducts();
+        Task<GetProductDetailsByIdDto> GetProductDetailsById(int ProductId);
 
 
     }

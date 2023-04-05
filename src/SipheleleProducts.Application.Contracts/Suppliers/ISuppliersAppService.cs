@@ -10,8 +10,9 @@ namespace SipheleleProducts.Suppliers
     {
         Task<string> AddNewSupplier(AddNewSupplierDto addNewSupplierDto);
         Task<string> RemoveSupplierById(int ProductId);
-        Task<string> UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto);
+        Task  UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto);
         Task<List<GetAllSuppliersDto>> GetAllSuppliers();
         Task<int> CountAvailableSuppliers();
+        Task<GetSupplierDetailsByIdDto> GetSuppliersDetailsById(int SupplierId);
     }
 }

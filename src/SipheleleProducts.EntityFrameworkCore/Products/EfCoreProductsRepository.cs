@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using SipheleleProducts.Categories.Entities;
 using SipheleleProducts.EntityFrameworkCore;
 using SipheleleProducts.Products.Entities;
+using SipheleleProducts.Suppliers.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -80,6 +81,18 @@ namespace SipheleleProducts.Products
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "RemoveProductById", CommandType.StoredProcedure, sqlQueryParam);
             return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+        }
+        public async Task<GetProductDetailsById> GetProductDetailsById(int ProductId, CancellationToken cancellationToken = default)
+        {
+            await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(), cancellationToken);
+            SqlParameter[] sqlQueryParam =
+            {
+                new SqlParameter("@ProductId", ProductId),
+
+            };
+            await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "GetProductDetailsById", CommandType.StoredProcedure, sqlQueryParam);
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
+            return await dataReader.MapToObject<GetProductDetailsById>(cancellationToken);
         }
     }
 }

@@ -5,6 +5,7 @@ using SipheleleProducts.Suppliers.Dto;
 using SipheleleProducts.ViewModels.Catergories;
 using SipheleleProducts.ViewModels.Products;
 using SipheleleProducts.ViewModels.Suppliers;
+using SipheleleProducts.Web.Pages.Suppliers;
 
 namespace SipheleleProducts.Web;
 
@@ -21,5 +22,8 @@ public class SipheleleProductsWebAutoMapperProfile : Profile
         CreateMap<AddNewSupplierViewModel, AddNewSupplierDto>();
         CreateMap <GetCategoryDetaislByCategoryByIdDto, GetCategoryDetaislByCategoryByIdViewModel> ();
         CreateMap<UpdateCategoryViewModel, UpdateCategoryDto>();
+        CreateMap<GetSupplierDetailsByIdDto, GetSupplierDetailsByIdViewModel>();
+        CreateMap<GetProductDetailsByIdDto, GetProductDetailsByIdViewModel>();
+        CreateMap<UpdateSupplierViewModel, UpdateSupplierByIdDto>();
     }
 }

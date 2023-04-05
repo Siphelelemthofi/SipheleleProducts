@@ -30,9 +30,9 @@
 
                     <thead>
                         <tr>
+                            <th>Picture</th>
                             <th>Category Name</th>
                             <th>Description</th>
-                            <th>Picture</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -43,17 +43,18 @@
                             @foreach (var item in Model.getListOfAllCatagoriesViewModel)
                             {
                                 <tr>
+                                    <td>@item.Picture</td>
                                     <td>@item.CategoryName</td>
                                     <td>@item.Description</td>
-                                    <td>@item.Picture</td>
+                                  
                                     <td>
-                                        <a href="/Categories/GetCategorieDetailsById?=@item.CategoryId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-original-title="Share">
+                                        <a href="/Categories/GetCategorieDetailsById?CategoryId=@item.CategoryId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-original-title="Share">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="/Categories/UpdateCategory?=@item.CategoryId" class="btn btn-primary btn-circle btn-sm">
+                                        <a href="/Categories/UpdateCategory?CategoryId=@item.CategoryId" class="btn btn-primary btn-circle btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="/Categories/ConfirmationDeleteOfCategories?=@item.CategoryId" class="btn btn-danger btn-circle btn-sm">
+                                        <a href="/Categories/ConfirmationDeleteOfCategories?CategoryId=@item.CategoryId" class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>

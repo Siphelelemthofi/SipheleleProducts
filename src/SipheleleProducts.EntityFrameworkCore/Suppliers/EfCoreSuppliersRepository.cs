@@ -53,7 +53,7 @@ namespace SipheleleProducts.Suppliers
             await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
             return await dataReader.MapToList<GetAllSuppliers>(cancellationToken);
         }
-        public async Task<string> UpdateSupplierById(UpdateSupplierById updateSupplyerById, CancellationToken cancellationToken = default)
+        public async Task UpdateSupplierById(UpdateSupplierById updateSupplyerById, CancellationToken cancellationToken = default)
         {
             await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
              cancellationToken);
@@ -73,7 +73,7 @@ namespace SipheleleProducts.Suppliers
                 new SqlParameter("@HomePage", updateSupplyerById.HomePage),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "UpdateSupplierById", CommandType.StoredProcedure, sqlQueryParam);
-            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
         }
         public async Task<string> RemoveSupplierById(int SuppliyerId, CancellationToken cancellationToken = default)
         {
@@ -85,6 +85,19 @@ namespace SipheleleProducts.Suppliers
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "RemoveSupplierById", CommandType.StoredProcedure, sqlQueryParam);
             return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+        }
+        public async Task<GetSupplierDetailsById> GetSuppliersDetailsById(int SupplierId,CancellationToken cancellationToken = default)
+        {
+            await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(), cancellationToken);
+            SqlParameter[] sqlQueryParam =
+            {
+                new SqlParameter("@SupplierId",SupplierId),
+            };
+
+            await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(),
+            "GetSupplierDetailsById", CommandType.StoredProcedure, sqlQueryParam);
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
+            return await dataReader.MapToObject<GetSupplierDetailsById>(cancellationToken);
         }
     }
 }

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using SipheleleProducts.Suppliers.Dto;
 using Volo.Abp.ObjectMapping;
 using SipheleleProducts.Suppliers.Entities;
+using SipheleleProducts.Categories.Dto;
+using SipheleleProducts.Categories.Entities;
 
 namespace SipheleleProducts.Suppliers
 {
@@ -30,10 +32,10 @@ namespace SipheleleProducts.Suppliers
             var GetSuppliers = await _supplierssRepository.GetAllSuppliers();
             return ObjectMapper.Map<List<GetAllSuppliers>, List<GetAllSuppliersDto>>(GetSuppliers);
         }
-        public async Task<string> UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto)
+        public async Task UpdateSupplierById(UpdateSupplierByIdDto UpdateSupplierByIdDto)
         {
             var UpdateCategory = ObjectMapper.Map<UpdateSupplierByIdDto, UpdateSupplierById>(UpdateSupplierByIdDto);
-            return await _supplierssRepository.UpdateSupplierById(UpdateCategory);
+             await _supplierssRepository.UpdateSupplierById(UpdateCategory);
         }
         public async Task<string> RemoveSupplierById(int ProductId)
         {
@@ -44,6 +46,11 @@ namespace SipheleleProducts.Suppliers
         {
             var CountAllSuppliers = await GetAllSuppliers();    
             return CountAllSuppliers.Count();
+        }
+        public async Task<GetSupplierDetailsByIdDto> GetSuppliersDetailsById(int SupplierId)
+        {
+            var getCatagoryByCategoryId = await _supplierssRepository.GetSuppliersDetailsById(SupplierId);
+            return ObjectMapper.Map<GetSupplierDetailsById, GetSupplierDetailsByIdDto>(getCatagoryByCategoryId);
         }
     }
 }
