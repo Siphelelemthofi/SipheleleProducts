@@ -25,7 +25,7 @@ namespace SipheleleProducts.Web.Pages.Suppliers
             var GetSupplierDetailsById = ObjectMapper.Map<GetSupplierDetailsByIdDto, GetSupplierDetailsByIdViewModel>(await _suppliersAppService.GetSuppliersDetailsById(SupplierId));
             UpdateSupplierViewModel = new UpdateSupplierViewModel()
             {
-                SupplierId = SupplierId,
+                SupplierId = GetSupplierDetailsById.SupplierId,
                 CompanyName = GetSupplierDetailsById.CompanyName,
                 ContactName = GetSupplierDetailsById.ContactName,
                 ContactTitle = GetSupplierDetailsById.ContactTitle,

@@ -26,7 +26,7 @@ namespace SipheleleProducts.Web.Pages.Categories
             {
                 //Add to check the duplicate 
                 var AddNewCategory = ObjectMapper.Map<AddNewCategoryViewModel, AddNewCategoryDto>(addNewCategoryViewModel);
-                var AddNewCategoryReturnResult = await _categoriesAppService.AddNewCatagory(AddNewCategory);
+                await _categoriesAppService.AddNewCatagory(AddNewCategory);
                 //redirect to get all category
                 return RedirectToPage("/Categories/GetAllCategories");
             }

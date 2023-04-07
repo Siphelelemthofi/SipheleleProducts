@@ -22,7 +22,7 @@ namespace SipheleleProducts.Products
         public EfCoreProductsRepository(IDbContextProvider<SipheleleProductsDbContext> dbContextProvider) : base(dbContextProvider)
         {
         }
-        public async Task<string> AddNewProduct(AddNewProduct addNewProduct, CancellationToken cancellationToken = default)
+        public async Task  AddNewProduct(AddNewProduct addNewProduct, CancellationToken cancellationToken = default)
         {
             await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
             cancellationToken);
@@ -31,16 +31,13 @@ namespace SipheleleProducts.Products
                 new SqlParameter("@ProductName", addNewProduct.ProductName),
                 new SqlParameter("@SupplierId", addNewProduct.SupplierId),
                 new SqlParameter("@CategoryId", addNewProduct.CategoryId),
-                new SqlParameter("@QuantityPerUnit", addNewProduct.QuantityPerUnit),
                 new SqlParameter("@UnitPrice", addNewProduct.UnitPrice),
                 new SqlParameter("@UnitInStock", addNewProduct.UnitInStock),
-                new SqlParameter("@UnitOnOrder", addNewProduct.UnitOnOrder),
-                new SqlParameter("@ReorderLevel", addNewProduct.ReorderLevel),
-                new SqlParameter("@Discontinued", addNewProduct.Discontinued)
-
+                new SqlParameter("@ImagePath", addNewProduct.ImagePath),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "AddNewProduct", CommandType.StoredProcedure, sqlQueryParam);
-            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
+            await dataReader.MapToObject<AddNewProduct>(cancellationToken);
         }
         public async Task<List<GetAllProducts>> GetAllProducts(CancellationToken cancellationToken = default)
         {
@@ -51,7 +48,7 @@ namespace SipheleleProducts.Products
             await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
             return await dataReader.MapToList<GetAllProducts>(cancellationToken);
         }
-        public async Task<string> UpdateProductById(UpdateProduct updateProduct,CancellationToken cancellationToken = default)
+        public async Task  UpdateProductById(UpdateProduct updateProduct,CancellationToken cancellationToken = default)
         {
             await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
              cancellationToken);
@@ -61,15 +58,13 @@ namespace SipheleleProducts.Products
                 new SqlParameter("@ProductName", updateProduct.ProductName),
                 new SqlParameter("@SupplierId", updateProduct.SupplierId),
                 new SqlParameter("@CategoryId", updateProduct.CategoryId),
-                new SqlParameter("@QuantityPerUnit", updateProduct.QuantityPerUnit),
                 new SqlParameter("@UnitPrice", updateProduct.UnitPrice),
                 new SqlParameter("@UnitInStock", updateProduct.UnitInStock),
-                new SqlParameter("@UnitOnOrder", updateProduct.UnitOnOrder),
-                new SqlParameter("@ReorderLevel", updateProduct.ReorderLevel),
-                new SqlParameter("@Discontinued", updateProduct.Discontinued)
+                new SqlParameter("@ImagePath", updateProduct.ImagePath),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "UpdateProductById", CommandType.StoredProcedure, sqlQueryParam);
-            return (string?)await command.ExecuteScalarAsync(cancellationToken) ?? string.Empty;
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
+            await dataReader.MapToObject<UpdateProduct>(cancellationToken);
         }
         public async Task<string> RemoveProductById(int ProductId,CancellationToken cancellationToken = default)
         {

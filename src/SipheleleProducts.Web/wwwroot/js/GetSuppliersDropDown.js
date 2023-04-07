@@ -6,13 +6,10 @@ var categoriesToDisplay = new Vue({
         options: GetAllActiveCategories()
     },
     methods: {
-        changeHandler(category) {
+        changeHandler(supplier) {
 
-            if (category) {
-
-
-                document.getElementById("addNewProductViewModel_SupplierId").value = category.id;
-
+            if (supplier) {
+                $('#addNewProductViewModel_SupplierId').val(category.id);
             } else {
                 $('#addNewProductViewModel_SupplierId').val(null);
             }

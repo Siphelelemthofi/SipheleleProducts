@@ -1,20 +1,20 @@
 ﻿Vue.component('v-select', VueSelect.VueSelect);
 
 var categoriesToDisplay = new Vue({
-    el: '#categoriesToDisplay',
+    el: '#appFilterUpdateSuppliers',
     data: {
         options: GetAllActiveCategories()
     },
     methods: {
-      
-        changeHandler(category) {
+        changeHandler(supplier) {
 
-            if (category) {
-                document.getElementById("addNewProductViewModel_CategoryId").value = category.id;
- 
+            if (supplier) {
+
+                $('#updateProductViewModel_SupplierId').val(supplier.id);
+                $('#updateProductViewModel_SupplierId').val(supplier.label);
+
             } else {
-                $('#addNewProductViewModel_CategoryId').val(null);
- 
+                $('#updateProductViewModel_SupplierId').val(null);
             }
         }
     },
@@ -36,12 +36,12 @@ var categoriesToDisplay = new Vue({
 
 function GetAllActiveCategories() {
     let data = [];
-    debugger;
-    window.axios.get('/api/app/categories/catagories').then(function (response) {
+
+    window.axios.get('/api/app/suppliers/suppliers').then(function (response) {
         for (let i = 0; i < response.data.length; i++) {
             data.push({
-                id: response.data[i].categoryId,
-                label: response.data[i].categoryName
+                id: response.data[i].supplierId,
+                label: response.data[i].companyName
             });
         }
     });

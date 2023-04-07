@@ -14,15 +14,17 @@ namespace SipheleleProducts.Categories
     public class CategoriesAppService: SipheleleProductsAppService, ICategoriesAppService
     {
         private readonly ICategoriesRepository _categoriesRepository;
+        private readonly CategoriesManager _categoriesManager;
+
+        public CategoriesAppService(ICategoriesRepository categoriesRepository, CategoriesManager categoriesManager) { 
         
-        public CategoriesAppService(ICategoriesRepository categoriesRepository ) { 
-        
-        _categoriesRepository = categoriesRepository;
+          _categoriesRepository = categoriesRepository;
+         _categoriesManager = categoriesManager;
     
         }
-        public async Task<Guid> AddNewCatagory(AddNewCategoryDto addNewCategoryDto)
+        public async Task AddNewCatagory(AddNewCategoryDto addNewCategoryDto)
         {
-            return await _categoriesRepository.AddNewCatagory(ObjectMapper.Map<AddNewCategoryDto, AddNewCategory>(addNewCategoryDto));
+             await _categoriesManager.AddNewCatagory(ObjectMapper.Map<AddNewCategoryDto, AddNewCategory>(addNewCategoryDto));
         }
         public async Task<List<GetListOfAllCatagoriesDto>> GetAllCatagories()
         {
@@ -32,7 +34,7 @@ namespace SipheleleProducts.Categories
         public async Task UpdateCategoryById(UpdateCategoryDto updateCategoryDto)
         {
             var UpdateCategory = ObjectMapper.Map<UpdateCategoryDto, UpdateCategory>(updateCategoryDto);
-            await _categoriesRepository.UpdateCategoryById(UpdateCategory);
+            await _categoriesManager.UpdateCategoryById(UpdateCategory);
         }
         public async Task<string> DeleteCategoryById(int CategoryId)
         {
@@ -40,6 +42,7 @@ namespace SipheleleProducts.Categories
         }
         public async Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetailsByCategoryById(int CategoryId)
         {
+
             var getCatagoryByCategoryId = await _categoriesRepository.GetCategoryDetaislByCategoryById(CategoryId);
             return ObjectMapper.Map<GetCategoryDetaislByCategoryById, GetCategoryDetaislByCategoryByIdDto>(getCatagoryByCategoryId);
         }

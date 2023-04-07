@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.Domain.Services;
 
 namespace SipheleleProducts.Suppliers.Manager
 {
-    public class SuppliersManager
+    public class SuppliersManager : DomainService
     {
         private readonly ISuppliersRepository _suppliersRepository;
         public SuppliersManager(ISuppliersRepository suppliersRepository) { 

@@ -8,9 +8,9 @@ namespace SipheleleProducts.Products
 {
     public interface IProductsAppService
     {
-        Task<string> AddNewProduct(AddNewProductDto addNewProductDto);
+        Task AddNewProduct(AddNewProductDto addNewProductDto);
         Task<List<GetAllProductDto>> GetAllProducts();
-        Task<string> UpdateByProductById(UpdateProductByIdDto updateProductByIdDto);
+        Task UpdateByProductById(UpdateProductByIdDto updateProductByIdDto);
         Task<string> DeleteByProductById(int ProductId);
         Task<int> CountTotalNumberOfProducts();
         Task<GetProductDetailsByIdDto> GetProductDetailsById(int ProductId);

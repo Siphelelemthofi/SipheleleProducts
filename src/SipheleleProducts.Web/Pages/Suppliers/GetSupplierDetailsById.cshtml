@@ -9,11 +9,11 @@
         <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-12 col-md-3 mb-2">
+            <div class="col-xl-12 col-md-6 mb-4">
                 <div class="card border-left-default shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            Supplier Information
+                            <h1 style="color:cornflowerblue;">Supplier Information</h1>
                         </div>
                     </div>
                 </div>
@@ -41,10 +41,14 @@
                             <label><strong>PhoneNumber:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.PhoneNumber</label><br />
                             <label><strong>Home Page Description:</strong>  <br />  @Model.getSupplierDetailsByIdViewModel.HomePage</label>
                         </div>
-                        <a href="/Suppliers/UpdateSupplier?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-primary btn-circle btn-sm">
+                        <hr />
+                     
+
+                        <a href="/Suppliers/GetAllSuppliers" class="btn btn-secondary btn-circle btn-lg" data-toggle="tooltip" data-placement="top" title="Back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                        <a href="/Suppliers/UpdateSupplier?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="top" title="Edit Supplier">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="/Suppliers/ConfirmationDeleteOfSuppliers?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-danger btn-circle btn-sm">
+                        <a href="/Suppliers/ConfirmationDeleteOfSuppliers?SupplierId=@Model.getSupplierDetailsByIdViewModel.SupplierId" class="btn btn-danger btn-circle btn-lg" data-toggle="tooltip" data-placement="top" title="Delete Supplier">
                             <i class="fas fa-trash"></i>
                         </a>
                     </div>
@@ -54,3 +58,8 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

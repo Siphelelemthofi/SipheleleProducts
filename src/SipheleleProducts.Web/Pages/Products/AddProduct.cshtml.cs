@@ -24,8 +24,8 @@ namespace SipheleleProducts.Web.Pages.Products
         {
             if(ModelState.IsValid)
             {
-                var AddNewProduct = await _productsAppService.AddNewProduct(ObjectMapper.Map<AddNewProductViewModel, AddNewProductDto>(addNewProductViewModel));
-                //redirect To GetAllProduct
+                 await _productsAppService.AddNewProduct(ObjectMapper.Map<AddNewProductViewModel, AddNewProductDto>(addNewProductViewModel));
+                return RedirectToPage("/Products/GetAllProducts");
             } 
             return Page();
         }

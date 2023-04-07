@@ -16,18 +16,36 @@ namespace SipheleleProducts.Web.Pages.Products
         {
             _productsAppService = productsAppService;
         }
-        public void OnGet()
+        public async void OnGet(int ProductId)
         {
-            //add get details for product
+            var getProductDetails = await _productsAppService.GetProductDetailsById(ProductId);
+            updateProductViewModel = new UpdateProductViewModel()
+            {
+                ProductId = getProductDetails.ProductId,
+                CompanyName = getProductDetails.CompanyName,    
+                CategoryName = getProductDetails.CategoryName,  
+                UnitInStock = getProductDetails.UnitInStock,
+                UnitPrice = getProductDetails.UnitPrice,    
+                ProductName = getProductDetails.ProductName,  
+                SupplierId = getProductDetails.SupplierId,
+                CategoryId = getProductDetails.CategoryId,  
+                ImagePath = getProductDetails.ImagePath,
+             
+            };
+     
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
-            {
-                var AddNewProduct = await _productsAppService.AddNewProduct(ObjectMapper.Map<UpdateProductViewModel, UpdateProductByIdDto>(updateProductViewModel));
-                //redirect To GetAllProduct
-            }
-            return Page();
+               if(updateProductViewModel.UnitInStock < 0 
+                || updateProductViewModel.UnitPrice < 0 || updateProductViewModel.SupplierId ==0 ||updateProductViewModel.CategoryId ==0 || string.IsNullOrEmpty(updateProductViewModel.ProductName))
+               {
+                return Page();
+               }
+                var UpdateProduct = ObjectMapper.Map<UpdateProductViewModel, UpdateProductByIdDto>(updateProductViewModel);
+                await _productsAppService.UpdateByProductById(UpdateProduct);
+                return RedirectToPage("/Products/GetAllProducts");
+            
+          
         }
     }
 }

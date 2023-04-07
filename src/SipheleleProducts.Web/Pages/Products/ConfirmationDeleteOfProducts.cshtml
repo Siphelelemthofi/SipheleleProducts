@@ -2,3 +2,42 @@
 @model SipheleleProducts.Web.Pages.Products.ConfirmationDeleteOfProductsModel
 @{
 }
+<div class="container-fluid" style="align-content:center;">
+    <div class="container-fluid">
+        <br />
+        <div class="row">
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <h1 style="color:cornflowerblue"> Delete Product</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post">
+        <div class="row">
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+                            <h5 style="color:red;">Are you sure you want to remove this Item?</h5>
+                        <div class="col-sm-8 col-md-9 col-lg-9">
+                            <label><strong>Picture:</strong><br />   <img src="@Model.removeProductViewModel.ImagePath" width="200" height="200"></label><br />
+                            <label><strong>Supplier Name:</strong>  <br />  @Model.removeProductViewModel.CompanyName</label><br />
+                            <label><strong>CategoryName:</strong><br />  @Model.removeProductViewModel.CategoryName</label><br />
+                            <label><strong>Unit Price:</strong><br />  @Model.removeProductViewModel.UnitPrice</label><br />
+                            <label><strong>Unit In Stock:</strong>  <br />  @Model.removeProductViewModel.UnitInStock</label><br />
+                        </div>
+                        <hr />
+                            <button type="submit" class="btn btn-danger btn-lg">YES</button>
+
+
+                            <a href="/Products/GetAllProducts" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

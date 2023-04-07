@@ -8,12 +8,12 @@ namespace SipheleleProducts.Categories
 {
     public interface ICategoriesAppService
     {
-        Task<Guid> AddNewCatagory(AddNewCategoryDto addNewCategoryDto);
+        Task AddNewCatagory(AddNewCategoryDto addNewCategoryDto);
         Task<List<GetListOfAllCatagoriesDto>> GetAllCatagories();
         Task UpdateCategoryById(UpdateCategoryDto updateCategoryDto);
         Task<string> DeleteCategoryById(int CategoryId);
         Task<GetCategoryDetaislByCategoryByIdDto> GetCategoryDetailsByCategoryById(int CategoryId);
        
-            Task<int> CountAvailbleCategories();
+        Task<int> CountAvailbleCategories();
     }
 }

@@ -2,3 +2,49 @@
 @model SipheleleProducts.Web.Pages.Products.GetProductDetailsByIdModel
 @{
 }
+<div class="container-fluid" style="align-content:center;">
+    <div class="container-fluid">
+        <!-- Content Row -->
+        <br />
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <h1 style="color:cornflowerblue"> Product Information</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card border-left-default shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="col-sm-8 col-md-9 col-lg-9">
+                            <label><strong>Picture:</strong><br />   <img src="@Model.getProductDetailsByIdViewModel.ImagePath" width="200" height="200"></label><br />
+                            <label><strong>Supplier Name:</strong>  <br />  @Model.getProductDetailsByIdViewModel.CompanyName</label><br />
+                            <label><strong>CategoryName:</strong><br />  @Model.getProductDetailsByIdViewModel.CategoryName</label><br />
+                            <label><strong>Unit Price:</strong><br />  @Model.getProductDetailsByIdViewModel.UnitPrice</label><br />
+                            <label><strong>Unit In Stock:</strong>  <br />  @Model.getProductDetailsByIdViewModel.UnitInStock</label><br />
+                        </div>
+                        <hr />
+                        <div>
+                            <a href="/Products/GetAllProducts" class="btn btn-secondary btn-lg" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="top" title="Back"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+                            <a href="/Products/ConfirmationDeleteOfProducts?ProductId=@Model.getProductDetailsByIdViewModel.ProductId" class="btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="Edit Product"><i class="fas fa-edit"></i></a>
+
+
+                            <a href="/Products/UpdateProduct?ProductId=@Model.getProductDetailsByIdViewModel.ProductId" class="btn btn-danger btn-lg" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="top" title="Remove Product"> <i class="fas fa-trash"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

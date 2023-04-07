@@ -7,5 +7,6 @@ namespace SipheleleProducts.Categories.Dto
     public class GetCategoryDetaislByCategoryByIdDto: AddNewCategoryDto
     {
         public int CategoryId { get; set; }
+        public string ImagePath { get; set; } = string.Empty;
     }
 }

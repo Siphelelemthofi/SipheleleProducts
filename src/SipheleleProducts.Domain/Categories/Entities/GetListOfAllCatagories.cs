@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace SipheleleProducts.Categories.Entities
 {
-    public class GetListOfAllCatagories : AddNewCategory
+    public class GetListOfAllCatagories
     {
         public int CategoryId { get; set; }
+        public string ImagePath { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }

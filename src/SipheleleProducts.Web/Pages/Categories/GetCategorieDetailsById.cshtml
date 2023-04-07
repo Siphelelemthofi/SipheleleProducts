@@ -69,11 +69,11 @@ body{
         <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-12 col-md-3 mb-2">
+            <div class="col-xl-12 col-md-6 mb-4">
                 <div class="card border-left-default shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            Category Information 
+                            <h1 style="color:cornflowerblue;">Category Information </h1>
                         </div>
                     </div>
                 </div>
@@ -81,34 +81,43 @@ body{
         </div>
         <!-- Content Row -->
         <div class="row">
-
+         
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-12 col-md-6 mb-4">
                 <div class="card border-left-default shadow h-100 py-2">
                     <div class="card-body">
-                      
-                            <div class="media-img col-sm-4 col-md-4 col-sm-3">
-                                <div class="img-overlay">
-                                    <a href="#" class="btn btn-primary">Details</a>
-                                </div>
-                                <img class="port-image" src="https://www.bootdey.com/image/400x400/87CEEB/000000">
-                            </div>
+                  
+
+                
                             <div class="col-sm-8 col-md-9 col-lg-9">
+                            <label><strong>Picture:</strong><br />   <img src="@Model.getCategoryDetaislByCategoryByIdViewModel.ImagePath" width="200" height="200"></label><br />
                             <label><strong>Category Name:</strong><br />  @Model.getCategoryDetaislByCategoryByIdViewModel.CategoryName</label><br />
                             <label><strong>Description:</strong>  <br />  @Model.getCategoryDetaislByCategoryByIdViewModel.Description</label>
                             </div>
-                        <a href="/Categories/UpdateCategory?=@Model.getCategoryDetaislByCategoryByIdViewModel.CategoryId" class="btn btn-primary btn-circle btn-sm">
-                            <i class="fas fa-edit"></i>
+                            <hr />
+
+                        <a href="/Categories/GetAllCategories" class="btn btn-secondary btn-lg btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Back">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         </a>
-                        <a href="/Categories/ConfirmationDeleteOfCategories?=@Model.getCategoryDetaislByCategoryByIdViewModel.CategoryId" class="btn btn-danger btn-circle btn-sm">
-                            <i class="fas fa-trash"></i>
+                        <a href="/Categories/UpdateCategory?CategoryId=@Model.getCategoryDetaislByCategoryByIdViewModel.CategoryId" class="btn btn-primary btn-lg btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Edit Category">
+                         
+                              <i class="fas fa-edit"></i>
                         </a>
+                        <a href="/Categories/ConfirmationDeleteOfCategories?CategoryId=@Model.getCategoryDetaislByCategoryByIdViewModel.CategoryId" class="btn btn-danger btn-lg btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Remove Category">
+                             <i class="fas fa-trash"></i>
+                        </a>
+                 
                         </div>
                   
                 </div>
             </div>
+        
         </div>
     </div>
 </div>
 <!-- Content Row -->
- 
+ <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+ </script>

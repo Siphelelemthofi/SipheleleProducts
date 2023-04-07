@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SipheleleProducts.ViewModels.Catergories
 {
-    public class GetCategoryDetaislByCategoryByIdViewModel: AddNewCategoryViewModel
+    public class RemoveCategoryViewModel: UpdateCategoryViewModel
     {
-        public int CategoryId { get; set; }
         public string ImagePath { get; set; } = string.Empty;
     }
 }

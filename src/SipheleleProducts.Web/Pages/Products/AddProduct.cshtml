@@ -15,76 +15,67 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Add Product!</h1>
                             </div>
-                            <form class="user" method="post">
+                            <form class="user" enctype="multipart/form-data" method="post">
                                 <input asp-for="addNewProductViewModel.SupplierId" type="hidden" />
                                 <input asp-for="addNewProductViewModel.CategoryId" type="hidden" />
                                 <div class="form-group row">
+
+
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="form-label">Product Name</label>
+                                        <input asp-for="addNewProductViewModel.Picture" type="file" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color: #f2f2f2">
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.Picture, "", new { @class = "text-danger" })
+                                    </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label class="form-label">Product Name</label>
                                         <input asp-for="addNewProductViewModel.ProductName" type="text" class="form-control form-control-user" id="exampleFirstName"
                                                style="background-color: #f2f2f2">
                                         @Html.ValidationMessageFor(model => model.addNewProductViewModel.ProductName, "", new { @class = "text-danger" })
                                     </div>
-                                    <div class="col-sm-6">
-                                        <label class="form-label">Supplier</label>
-                                        <div class="col-6 col-sm-10">
-                                       
-                                            <div id="appFilterSuppliers" style="background-color:   #f2f2f2">
-                                            </div>
-                                            <span class="fa fa-info-circle errspan"
-                                                  data-toggle="tooltip"
-                                                  data-placement="bottom"
-                                                  title="Please select department from the dropdown list that your desired Qualification belongs to, you can also search it"></span>
-                                            @Html.ValidationMessageFor(model => model.addNewProductViewModel.SupplierId, "", new { @class = "text-danger" })
-                                        </div>
-                                    
-                                    </div>
+                                    <br />
+                                   
+                                 
                                 </div>
+
                                 <div class="form-group row">
+
+
+                                    <div class="col-sm-6 mb-3 mb-sm-0" >
+                                        <label class="form-label">Supplier Name</label>
+                                        <div id="appFilterSuppliers" style="background-color:   #f2f2f2">
+                                        </div>
+                                           
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.SupplierId, "", new { @class = "text-danger" })
+                                    </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class="form-label">Category</label>
+                                        <label class="form-label">Category Name</label>
                                         <div id="categoriesToDisplay" style="background-color:   #f2f2f2">
                                         </div>
-                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.CategoryId, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.ProductName, "", new { @class = "text-danger" })
                                     </div>
-                                    <div class="col-sm-6">
-                                        <label class="form-label">QuantityPerUnit</label>
-                                        <input asp-for="addNewProductViewModel.QuantityPerUnit" type="text" class="form-control form-control-user" id="exampleLastName"
-                                               style="background-color:   #f2f2f2">
-                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.QuantityPerUnit, "", new { @class = "text-danger" })
-                                    </div>
+                                    <br />
+
+
                                 </div>
+ 
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <label class="form-label">UnitPrice</label>
-                                        <input asp-for="addNewProductViewModel.UnitPrice" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input asp-for="addNewProductViewModel.UnitPrice" type="number" class="form-control form-control-user" id="exampleFirstName"
                                                style="background-color:  #f2f2f2">
                                         @Html.ValidationMessageFor(model => model.addNewProductViewModel.UnitPrice, "", new { @class = "text-danger" })
                                     </div>
 
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <label class="form-label">UnitInStock</label>
-                                        <input asp-for="addNewProductViewModel.UnitInStock" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input asp-for="addNewProductViewModel.UnitInStock" type="number" class="form-control form-control-user" id="exampleFirstName"
                                                style="background-color:   #f2f2f2">
                                         @Html.ValidationMessageFor(model => model.addNewProductViewModel.UnitInStock, "", new { @class = "text-danger" })
                                     </div>
-                                    <div class="col-sm-6">
-                                        <label class="form-label">ReorderLevel</label>
-                                        <input asp-for="addNewProductViewModel.ReorderLevel" type="text" class="form-control form-control-user" id="exampleLastName"
-                                               style="background-color:   #f2f2f2">
-                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.ReorderLevel, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <label class="form-label">Discontinued</label>
-                                        <input asp-for="addNewProductViewModel.Discontinued" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               style="background-color:  #f2f2f2">
-                                        @Html.ValidationMessageFor(model => model.addNewProductViewModel.Discontinued, "", new { @class = "text-danger" })
-                                    </div>
-                                  
+                                
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Save

@@ -14,16 +14,17 @@ public class SipheleleProductsWebAutoMapperProfile : Profile
     public SipheleleProductsWebAutoMapperProfile()
     {
         //Define your AutoMapper configuration here for the Web project.
-        CreateMap<AddNewCategoryViewModel, AddNewCategoryDto>();
         CreateMap<GetAllProductDto,GetAllProductViewModel>();
         CreateMap<GetListOfAllCatagoriesDto,GetListOfAllCatagoriesViewModel>();
         CreateMap<GetAllSuppliersDto, GetAllSuppliersViewModel>();
-        CreateMap<AddNewCategoryViewModel, AddNewCategoryDto>();
         CreateMap<AddNewSupplierViewModel, AddNewSupplierDto>();
         CreateMap <GetCategoryDetaislByCategoryByIdDto, GetCategoryDetaislByCategoryByIdViewModel> ();
         CreateMap<UpdateCategoryViewModel, UpdateCategoryDto>();
         CreateMap<GetSupplierDetailsByIdDto, GetSupplierDetailsByIdViewModel>();
         CreateMap<GetProductDetailsByIdDto, GetProductDetailsByIdViewModel>();
         CreateMap<UpdateSupplierViewModel, UpdateSupplierByIdDto>();
+        CreateMap<AddNewProductViewModel, AddNewProductDto>();
+        CreateMap<UpdateProductViewModel, UpdateProductByIdDto>();
+        CreateMap<AddNewCategoryViewModel, AddNewCategoryDto>();
     }
 }

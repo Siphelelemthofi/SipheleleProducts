@@ -1,20 +1,20 @@
 ﻿Vue.component('v-select', VueSelect.VueSelect);
 
 var categoriesToDisplay = new Vue({
-    el: '#categoriesToDisplay',
+    el: '#updatecategoriesDisplay',
     data: {
         options: GetAllActiveCategories()
     },
     methods: {
-      
+
         changeHandler(category) {
 
             if (category) {
-                document.getElementById("addNewProductViewModel_CategoryId").value = category.id;
- 
+                $('#updateProductViewModel_CategoryId').val(category.id);
+                $('#updateProductViewModel_CategoryId').val(category.label);
             } else {
-                $('#addNewProductViewModel_CategoryId').val(null);
- 
+                $('#updateProductViewModel_CategoryId').val(category.label);
+          
             }
         }
     },

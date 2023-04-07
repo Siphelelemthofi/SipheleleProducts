@@ -64,8 +64,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label class="form-label">Postal Code</label>
-                                        <input asp-for="UpdateSupplierViewModel.PostalCode" type="text" class="form-control form-control-user" id="exampleLastName"
-                                               style="background-color:   #f2f2f2">
+                                        <input asp-for="UpdateSupplierViewModel.PostalCode" type="number" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:   #f2f2f2" maxlength="10">
                                         @Html.ValidationMessageFor(model => model.UpdateSupplierViewModel.PostalCode, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -78,16 +78,16 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label class="form-label">Phone Number</label>
-                                        <input asp-for="UpdateSupplierViewModel.PhoneNumber" type="text" class="form-control form-control-user" id="exampleLastName"
-                                               style="background-color:  #f2f2f2">
+                                        <input asp-for="UpdateSupplierViewModel.PhoneNumber" type="number" class="form-control form-control-user" id="exampleLastName"
+                                               style="background-color:  #f2f2f2" maxlength="10">
                                         @Html.ValidationMessageFor(model => model.UpdateSupplierViewModel.PhoneNumber, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <label class="form-label">Fax</label>
-                                        <input asp-for="UpdateSupplierViewModel.Fax" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                               style="background-color:  #f2f2f2">
+                                        <input asp-for="UpdateSupplierViewModel.Fax" type="number" class="form-control form-control-user" id="exampleFirstName"
+                                               style="background-color:  #f2f2f2" maxlength="10">
                                         @Html.ValidationMessageFor(model => model.UpdateSupplierViewModel.Fax, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-sm-6">

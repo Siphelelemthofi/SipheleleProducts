@@ -13,6 +13,7 @@
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h6 class="m-0 font-weight-bold text-primary">List Of Categoty</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Click on search to search Item </h6>
                 <a href="/Categories/addCategory" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fa fa-plus fa-sm text-white-50"></i> Add Categoty
                 </a>
@@ -43,18 +44,18 @@
                             @foreach (var item in Model.getListOfAllCatagoriesViewModel)
                             {
                                 <tr>
-                                    <td>@item.Picture</td>
+                                    <td><img src="@item.ImagePath" width="100" height="100"> </td>
                                     <td>@item.CategoryName</td>
                                     <td>@item.Description</td>
                                   
                                     <td>
-                                        <a href="/Categories/GetCategorieDetailsById?CategoryId=@item.CategoryId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-original-title="Share">
+                                        <a href="/Categories/GetCategorieDetailsById?CategoryId=@item.CategoryId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="View Details Category">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="/Categories/UpdateCategory?CategoryId=@item.CategoryId" class="btn btn-primary btn-circle btn-sm">
+                                        <a href="/Categories/UpdateCategory?CategoryId=@item.CategoryId" class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Edit Category">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="/Categories/ConfirmationDeleteOfCategories?CategoryId=@item.CategoryId" class="btn btn-danger btn-circle btn-sm">
+                                        <a href="/Categories/ConfirmationDeleteOfCategories?CategoryId=@item.CategoryId" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Remove Category">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -72,3 +73,8 @@
 
 </div>
 <!-- /.container-fluid -->
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

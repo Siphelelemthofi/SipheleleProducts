@@ -12,28 +12,31 @@ using SipheleleProducts.Products.Entities;
 using SipheleleProducts.Suppliers.Entities;
 using System.Threading;
 using SipheleleProducts.Suppliers.Dto;
+using SipheleleProducts.Products.Manager;
 
 namespace SipheleleProducts.Products
 {
     public class ProductsAppService: SipheleleProductsAppService, IProductsAppService
     {
-        private readonly IProductsRepository _productsRepository;   
-        public ProductsAppService(IProductsRepository productsRepository) {
+        private readonly IProductsRepository _productsRepository;
+        private readonly ProductsManager _productsManager;
+        public ProductsAppService(IProductsRepository productsRepository,ProductsManager productsManager) {
             _productsRepository = productsRepository;
+            _productsManager = productsManager;
         }
-        public async Task<string> AddNewProduct(AddNewProductDto addNewProductDto)
+        public async Task AddNewProduct(AddNewProductDto addNewProductDto)
         {
-            return await _productsRepository.AddNewProduct(ObjectMapper.Map<AddNewProductDto, AddNewProduct>(addNewProductDto));
+             await _productsManager.AddNewProduct(ObjectMapper.Map<AddNewProductDto, AddNewProduct>(addNewProductDto));
         }
         public async Task<List<GetAllProductDto>> GetAllProducts()
         {
             var GetProducts = await _productsRepository.GetAllProducts();
             return ObjectMapper.Map<List<GetAllProducts>, List<GetAllProductDto>>(GetProducts);
         }
-        public async Task<string> UpdateByProductById(UpdateProductByIdDto updateProductByIdDto)
+        public async Task UpdateByProductById(UpdateProductByIdDto updateProductByIdDto)
         {
             var UpdateCategory = ObjectMapper.Map<UpdateProductByIdDto, UpdateProduct>(updateProductByIdDto);
-            return await _productsRepository.UpdateProductById(UpdateCategory); 
+             await _productsManager.UpdateProductById(UpdateCategory); 
         }
         public async Task<string> DeleteByProductById(int ProductId)
         {

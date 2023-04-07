@@ -21,7 +21,7 @@ namespace SipheleleProducts.Categories
         public EfCoreCategoriesRepository(IDbContextProvider<SipheleleProductsDbContext> dbContextProvider) : base(dbContextProvider)
         {
         }
-        public async Task<Guid> AddNewCatagory(AddNewCategory addNewCategorys, CancellationToken cancellationToken = default)
+        public async Task AddNewCatagory(AddNewCategory addNewCategorys, CancellationToken cancellationToken = default)
         {
             await RepositoryCommandAndConnection.EnsureConnectionOpenAsync(await GetDbContextAsync(),
              cancellationToken);
@@ -29,10 +29,10 @@ namespace SipheleleProducts.Categories
             {
                 new SqlParameter("@CategoryName", addNewCategorys.CategoryName),
                 new SqlParameter("@Description", addNewCategorys.Description),
-                new SqlParameter("@Picture", addNewCategorys.Picture),
+                new SqlParameter("@Picture", addNewCategorys.ImagePath),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "AddNewCategory", CommandType.StoredProcedure, sqlQueryParam);
-            return (Guid?)await command.ExecuteScalarAsync(cancellationToken) ?? Guid.Empty;
+            await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);
         }
         public async Task<List<GetListOfAllCatagories>> GetAllCategories(CancellationToken cancellationToken = default)
         {
@@ -52,7 +52,7 @@ namespace SipheleleProducts.Categories
                 new SqlParameter("@CategoryId", updateCategory.CategoryId),
                 new SqlParameter("@CategoryName", updateCategory.CategoryName),
                 new SqlParameter("@Description", updateCategory.Description),
-                new SqlParameter("@Picture", updateCategory.Picture),
+                new SqlParameter("@Picture", updateCategory.ImagePath),
             };
             await using var command = RepositoryCommandAndConnection.CreateCommand(await GetDbContextAsync(), "UpdateCategoryById", CommandType.StoredProcedure, sqlQueryParam);
             await using var dataReader = await command.ExecuteReaderAsync(cancellationToken);

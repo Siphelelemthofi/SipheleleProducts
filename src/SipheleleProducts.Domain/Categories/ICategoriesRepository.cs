@@ -10,7 +10,7 @@ namespace SipheleleProducts.Categories
 {
     public interface ICategoriesRepository
     {
-        Task<Guid> AddNewCatagory(AddNewCategory addNewCategorys, CancellationToken cancellationToken = default);
+        Task  AddNewCatagory(AddNewCategory addNewCategorys, CancellationToken cancellationToken = default);
         Task<List<GetListOfAllCatagories>> GetAllCategories(CancellationToken cancellationToken = default);
         Task UpdateCategoryById(UpdateCategory updateCategory, CancellationToken cancellationToken = default);
         Task<string> DeleteCategoryById(int CategoryId, CancellationToken cancellationToken = default);

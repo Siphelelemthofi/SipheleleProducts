@@ -12,6 +12,7 @@
 
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h6 class="m-0 font-weight-bold text-primary">List Of Supplier</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Click on search to search Item </h6>
                 <a href="/Suppliers/AddSupplier" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fa fa-plus fa-sm text-white-50"></i> Add Supplier
                 </a>
@@ -55,14 +56,14 @@
                                     <td>@item.PostalCode</td>
 
                                     <td>
-                                        <a href="/Suppliers/GetSupplierDetailsById?SupplierId=@item.SupplierId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-original-title="Share">
+                                        <a href="/Suppliers/GetSupplierDetailsById?SupplierId=@item.SupplierId" class="btn btn-success btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="View Details for supplier">
                                             <i class="fa fa-eye"></i>
                                         </a>
 
-                                        <a href="/Suppliers/UpdateSupplier?SupplierId=@item.SupplierId" class="btn btn-primary btn-circle btn-sm">
+                                        <a href="/Suppliers/UpdateSupplier?SupplierId=@item.SupplierId" class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Edit supplier">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="/Suppliers/ConfirmationDeleteOfSuppliers?SupplierId=@item.SupplierId" class="btn btn-danger btn-circle btn-sm">
+                                        <a href="/Suppliers/ConfirmationDeleteOfSuppliers?SupplierId=@item.SupplierId" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Remove supplier">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -79,3 +80,8 @@
     </div>
 
 </div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
