@@ -26,9 +26,9 @@ public class IndexModel : SipheleleProductsPageModel
     }
     public async void OnGet()
     {
-        TotalNUmberOfCategories = await _categoriesAppService.CountAvailbleCategories();
-        TotalNUmberOfProducts = await _productsAppService.CountTotalNumberOfProducts();
-        TotalNumberOfSuppliers = await _suppliersAppService.CountAvailableSuppliers();
+        //TotalNUmberOfCategories = await _categoriesAppService.CountAvailbleCategories();
+        //TotalNUmberOfProducts = await _productsAppService.CountTotalNumberOfProducts();
+        //TotalNumberOfSuppliers = await _suppliersAppService.CountAvailableSuppliers();
 
     }
 }
