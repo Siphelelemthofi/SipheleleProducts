@@ -33,7 +33,6 @@ var categoriesToDisplay = new Vue({
 
 function GetAllActiveSuppliers() {
     let data = [];
-    debugger;
     window.axios.get('/api/app/suppliers/suppliers').then(function (response) {
         for (let i = 0; i < response.data.length; i++) {
             data.push({
