@@ -9,7 +9,6 @@ var categoriesToDisplay = new Vue({
         changeHandler(supplier) {
 
             if (supplier) {
-                document.getElementById("updateProductViewModel_SupplierId").value = supplier.id;
                 $('#updateProductViewModel_SupplierId').val(supplier.id);
 
             } else {
@@ -27,7 +26,7 @@ var categoriesToDisplay = new Vue({
                 "options": this.options,
                 "item-value": this.options,
                 "item-text": this.options,
-                "placeholder": "--- Please Select Category ---"
+                "placeholder": "--- Please Select Supplier ---"
             }
         });
     }

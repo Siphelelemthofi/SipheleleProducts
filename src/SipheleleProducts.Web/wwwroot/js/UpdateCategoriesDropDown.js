@@ -11,7 +11,6 @@ var categoriesToDisplay = new Vue({
 
             if (category) {
                 document.getElementById("updateProductViewModel_CategoryId").value = category.id;
-                $('#updateProductViewModel_CategoryId').val(category.id);
             } else {
                 $('#updateProductViewModel_CategoryId').val(category.label);
           
@@ -36,7 +35,6 @@ var categoriesToDisplay = new Vue({
 
 function GetAllActiveCategories() {
     let data = [];
-    debugger;
     window.axios.get('/api/app/categories/catagories').then(function (response) {
         for (let i = 0; i < response.data.length; i++) {
             data.push({
