@@ -35,8 +35,8 @@ namespace SipheleleProducts.Products.Manager
             if (updateProduct.Picture is not null)
             {
                 updateProduct.ImagePath = await _storingImageManager.SaveImages(updateProduct.Picture);
-                await _productsRepository.UpdateProductById(updateProduct);
             }
+            await _productsRepository.UpdateProductById(updateProduct);
         }
  
     }

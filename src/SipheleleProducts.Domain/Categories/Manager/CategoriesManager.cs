@@ -47,8 +47,8 @@ namespace SipheleleProducts.Categories.Manager
             if (updateCategory.Picture is not null)
             {
                 updateCategory.ImagePath = await _storingImageManager.SaveImages(updateCategory.Picture);
-                await _categoriesRepository.UpdateCategoryById(updateCategory);
             }
+            await _categoriesRepository.UpdateCategoryById(updateCategory);
         }
 
 
