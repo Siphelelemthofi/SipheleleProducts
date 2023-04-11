@@ -3,7 +3,7 @@
 var categoriesToDisplay = new Vue({
     el: '#appFilterUpdateSuppliers',
     data: {
-        options: GetAllActiveCategories()
+        options: GetAllActiveSuppliers()
     },
     methods: {
         changeHandler(supplier) {
@@ -34,7 +34,7 @@ var categoriesToDisplay = new Vue({
     }
 });
 
-function GetAllActiveCategories() {
+function GetAllActiveSuppliers() {
     let data = [];
 
     window.axios.get('/api/app/suppliers/suppliers').then(function (response) {

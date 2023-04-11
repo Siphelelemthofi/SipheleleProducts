@@ -3,13 +3,13 @@
 var categoriesToDisplay = new Vue({
     el: '#appFilterSuppliers',
     data: {
-        options: GetAllActiveCategories()
+        options: GetAllActiveSuppliers()
     },
     methods: {
         changeHandler(supplier) {
 
             if (supplier) {
-                $('#addNewProductViewModel_SupplierId').val(category.id);
+                document.getElementById("addNewProductViewModel_SupplierId").value = supplier.id;
             } else {
                 $('#addNewProductViewModel_SupplierId').val(null);
             }
@@ -25,15 +25,15 @@ var categoriesToDisplay = new Vue({
                 "options": this.options,
                 "item-value": this.options,
                 "item-text": this.options,
-                "placeholder": "--- Please Select Category ---"
+                "placeholder": "--- Please Select Supplier ---"
             }
         });
     }
 });
 
-function GetAllActiveCategories() {
+function GetAllActiveSuppliers() {
     let data = [];
-
+    debugger;
     window.axios.get('/api/app/suppliers/suppliers').then(function (response) {
         for (let i = 0; i < response.data.length; i++) {
             data.push({
