@@ -36,8 +36,8 @@ namespace SipheleleProducts.Web.Pages.Products
         }
         public async Task<IActionResult> OnPostAsync()
         {
-               if(updateProductViewModel.UnitInStock < 0 
-                || updateProductViewModel.UnitPrice < 0 || updateProductViewModel.SupplierId ==0 ||updateProductViewModel.CategoryId ==0 || string.IsNullOrEmpty(updateProductViewModel.ProductName))
+               if(updateProductViewModel.UnitInStock <= 0 
+                || updateProductViewModel.UnitPrice <= 0 || updateProductViewModel.SupplierId ==0 ||updateProductViewModel.CategoryId ==0 || string.IsNullOrEmpty(updateProductViewModel.ProductName) || updateProductViewModel.UnitPrice is null || updateProductViewModel.UnitInStock is null)
                {
                 return Page();
                }

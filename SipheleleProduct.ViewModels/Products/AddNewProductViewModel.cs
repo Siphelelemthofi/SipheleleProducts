@@ -15,19 +15,18 @@ namespace SipheleleProducts.ViewModels.Products
         public string ProductName { get; set; } = string.Empty;
         [Required]
         [Display(Name = "Supplier Name")]
-        public int SupplierId { get; set; }
+        public int? SupplierId { get; set; }
         [Required]
         [Display(Name = "Category Name")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         [Required]
         [Display(Name = "Price Unit")]
-        public float UnitPrice { get; set; }
+        public float? UnitPrice { get; set; }
         [Required]
         [Display(Name = "Stock Unit")]
-        public int UnitInStock { get; set; }
-        [Required]
-        [Display(Name = "Order Unit")]
-        public int UnitOnOrder { get; set; }
+        public int? UnitInStock { get; set; }
+    
+        public int? UnitOnOrder { get; set; }
         [Required]
         public IFormFile? Picture { get; set; }
         public string ImagePath { get; set; } = string.Empty;
