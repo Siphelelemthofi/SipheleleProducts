@@ -10,8 +10,8 @@ var categoriesToDisplay = new Vue({
         changeHandler(category) {
 
             if (category) {
+                document.getElementById("updateProductViewModel_CategoryId").value = category.id;
                 $('#updateProductViewModel_CategoryId').val(category.id);
-                $('#updateProductViewModel_CategoryId').val(category.label);
             } else {
                 $('#updateProductViewModel_CategoryId').val(category.label);
           
