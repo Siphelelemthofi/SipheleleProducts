@@ -18,7 +18,7 @@ namespace SipheleleProducts.Web.Pages.Suppliers
         {
             _suppliersAppService = suppliersAppService;
         }
-        public async void OnGet(int SupplierId)
+        public async Task<IActionResult> OnGet(int SupplierId)
         {
             var GetSupplierDetailsById = ObjectMapper.Map<GetSupplierDetailsByIdDto, GetSupplierDetailsByIdViewModel>(await _suppliersAppService.GetSuppliersDetailsById(SupplierId));
             RemoveSupplierViewModel = new RemoveSupplierViewModel()
@@ -36,6 +36,7 @@ namespace SipheleleProducts.Web.Pages.Suppliers
                 Fax = GetSupplierDetailsById.Fax,
                 HomePage = GetSupplierDetailsById.HomePage,
             };
+            return Page();
         }
         public async Task<IActionResult> OnPost(int SupplierId)
         {
